@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">LearnDemo</string>
+
+    <string name="navigation_drawer_open" translatable="false">close drawer</string>
+    <string name="navigation_drawer_close" translatable="false">open drawer</string>
+    <string name="action_settings">设置</string>
+
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">登陆或者注册</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"需要提供电子邮件联系人权限完成."</string>
+
+    <!--资源来自妹知-->
+    <string name="action_about">关于</string>
+    <string name="load_fail">网络被外星人切断，稍后再试吧</string>
+    <string name="activity_news_detail">知乎日报详情</string>
+    <string name="share_title" translatable="false">shared_title</string>
+    <string name="shared_img" translatable="false">shared_img</string>
+    <string name="activity_settings">设置</string>
+    <string name="nva_knowledge">知识</string>
+    <string name="nav_beauty">美图</string>
+    <string name="nav_xxoo" translatable="false">XXOO</string>
+    <string name="app">应用</string>
+    <string name="nav_share">分享</string>
+    <string name="nav_setting">设置</string>
+    <string name="activity_detail">详情页</string>
+    <string name="fresh_news">新鲜事</string>
+    <string name="zhihu_news">知乎日報</string>
+    <string name="loading">努力加载中…</string>
+    <string name="my_email" translatable="false">danteandroi@gmail.com</string>
+    <string name="contact_me">联系我</string>
+    <string name="set_clear_cache">清除缓存</string>
+    <string name="set_current_cache">当前缓存为 </string>
+    <string name="set_check_version">检查更新</string>
+    <string name="set_feedback">应用反馈</string>
+    <string name="set_post_feedback">提建议或反馈bug</string>
+    <string name="share_to">分享到</string>
+    <string name="menu_share">分享</string>
+    <string name="version">版本 </string>
+    <string name="about_me">关于作者</string>
+    <string name="about_me_description">我是一个热爱Google和Android的开发者，如果你有好的idea或建议，不要犹豫，发送邮件跟我交流吧~</string>
+    <string name="license">免责声明</string>
+    <string name="license_description">本APP接口，资源全部来源于网络，如有侵权请告知</string>
+    <string name="column_not_available">栏目未完成，请更新或联系作者 :D</string>
+    <string name="clear_cache_success">缓存已清理</string>
+    <string name="clear_cache_failed">缓存删除失败</string>
+    <string name="original_splash">原始启动图</string>
+    <string name="set_original_splash">使用原始启动图而不是从网络获取</string>
+    <string name="share_app_description">这个Android项目很不错 https://github.com/DanteAndroid/Knowledge/</string>
+    <string name="share_app">分享应用</string>
+    <string name="tips">贴士</string>
+    <string name="tips_content">浏览到下方时，点击标题栏可以快速返回顶部</string>
+
+    <string name="hottest">今日热闻</string>
+    <string name="gank" translatable="false">Gank</string>
+    <string name="db">豆瓣美女</string>
+    <string name="db_breast">波涛胸涌</string>
+    <string name="db_butt">悬崖翘臂</string>
+    <string name="db_silk">黑丝控</string>
+    <string name="db_leg">美腿</string>
+    <string name="db_rank">热门</string>
+    <string name="nav_secret_mode" translatable="false">XXOO</string>
+    <string name="secret_mode_opened">隐藏模式已打开，我们一起嘿嘿嘿~</string>
+    <string name="secret_mode_closed">隐藏模式已关闭。</string>
+    <string name="close_app">关闭应用</string>
+    <string name="h_beauty">唯美</string>
+    <string name="h_selfie">自拍</string>
+    <string name="h_exposure">露出</string>
+    <string name="h_original">原创</string>
+    <string name="can_not_find_version_name">无法识别版本号</string>
+    <string name="load_no_result">啊哦，妹子太害羞，不好意思出來了</string>
+    <string name="try_again">淫家才不信咧</string>
+    <string name="save_img_failed">无法保存图片</string>
+    <string name="save_img_success">妹子已保存在：</string>
+    <string name="view_img_hint">向下拉图片退出浏览；长按图片可以保存到手机~</string>
+    <string name="title_activity_test" translatable="false">TestActivity</string>
+    <string name="save_img">保存</string>
+    <string name="leave_app">真的要离开人家了吗？</string>
+
+    <string name="browse_picture_hint">浏览图片时，您可以长按以分享/保存该图片.</string>
+    <string name="hint">提示</string>
+    <string name="ok">知道啦</string>
+    <string name="start_download_update">检测到新版，开始下载…</string>
+    <string name="email_not_install">您的手机没有安装邮件app。</string>
+
+</resources>
