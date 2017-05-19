@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.colorchen.LearnDemoApp;
-
 import butterknife.ButterKnife;
 
 /**
@@ -41,7 +39,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        LearnDemoApp.getWatcher(getActivity()).watch(this);
     }
 
     protected abstract void initLayoutId();

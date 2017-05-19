@@ -27,9 +27,13 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_net"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Net" />
+            <item
+                android:id="@+id/nav_video"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Video" />
             <item
                 android:id="@+id/testJS"
                 android:icon="@drawable/ic_menu_share"

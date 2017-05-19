@@ -133,7 +133,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the

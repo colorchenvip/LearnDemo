@@ -15,7 +15,6 @@ import com.colorchen.ui.BaseFragment;
 import com.colorchen.utils.Constants;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.Bind;
@@ -24,15 +23,11 @@ import butterknife.Bind;
  * Created by color on 16/4/25 14:53.
  */
 public class TabsFragment extends BaseFragment {
-    public static final String MENU_X = "x";
     public static final String MENU_NEWS = "news";
     public static final String MENU_PIC = "pic";
     public static final String MENU_SECRET = "secret";
-    public static final String MENU_H = "h";
 
     private static final int SMOOTHSCROLL_TOP_POSITION = 50;
-    public static final int TYPE_ZHIHU = 1024;
-    public static final int TYPE_FRESH = 1025;
 
     private TabPagerAdapter adapter;
     @Bind(R.id.pager)
@@ -55,31 +50,6 @@ public class TabsFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-        adapter = new TabPagerAdapter(getChildFragmentManager());
-        initFragments();
-        pager.setAdapter(adapter);
-        if (MENU_PIC.equals(menuType)){
-            tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
-        }
-        tabs.setupWithViewPager(pager);
-        tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                pager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                scrollToTop(fragments.get(tab.getPosition()).getRecyclerView());
-            }
-        });
-
-
     }
 
     @Override
@@ -87,44 +57,7 @@ public class TabsFragment extends BaseFragment {
 
     }
 
-    private void initFragments() {
-        menuType = getArguments().getString(Constants.TYPE);
 
-        List<String> mTitles;
-        if (MENU_PIC.equals(menuType)) {
-            String[] titles = new String[]{
-                    getString(R.string.gank),
-                    getString(R.string.db_rank),
-                    getString(R.string.db_leg),
-                    getString(R.string.db_silk),
-                    getString(R.string.db_breast),
-                    getString(R.string.db_butt)};
-            mTitles = Arrays.asList(titles);
-            fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_GANK));
-            fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_DB_RANK));
-            fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_DB_LEG));
-            fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_DB_SILK));
-            fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_DB_BREAST));
-            fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_DB_BUTT));
-            if (fragments.size() != titles.length) {
-                throw new IllegalArgumentException("You need add all fragments in "+getClass().getSimpleName());
-            }
-
-        } else if (MENU_SECRET.equals(menuType)) {
-            String[] titles = new String[]{getString(R.string.h_beauty), getString(R.string.h_selfie), getString(R.string.h_exposure), getString(R.string.h_original)};
-            mTitles = Arrays.asList(titles);
-            fragments.add(HFragment.newInstance(HFragment.TYPE_H_BEAUTY));
-            fragments.add(HFragment.newInstance(HFragment.TYPE_H_SELFIE));
-            fragments.add(HFragment.newInstance(HFragment.TYPE_H_EXPOSURE));
-            fragments.add(HFragment.newInstance(HFragment.TYPE_H_ORIGINAL));
-
-        } else {
-            mTitles = new ArrayList<>();
-            mTitles.add(getString(R.string.zhihu_news));
-            mTitles.add(getString(R.string.fresh_news));
-        }
-        adapter.setFragments(fragments, mTitles);
-    }
 
     @Override
     protected void initLayoutId() {

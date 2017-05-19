@@ -59,24 +59,11 @@
     <string name="tips_content">浏览到下方时，点击标题栏可以快速返回顶部</string>
 
     <string name="hottest">今日热闻</string>
-    <string name="gank" translatable="false">Gank</string>
-    <string name="db">豆瓣美女</string>
-    <string name="db_breast">波涛胸涌</string>
-    <string name="db_butt">悬崖翘臂</string>
-    <string name="db_silk">黑丝控</string>
-    <string name="db_leg">美腿</string>
-    <string name="db_rank">热门</string>
     <string name="nav_secret_mode" translatable="false">XXOO</string>
     <string name="secret_mode_opened">隐藏模式已打开，我们一起嘿嘿嘿~</string>
     <string name="secret_mode_closed">隐藏模式已关闭。</string>
     <string name="close_app">关闭应用</string>
-    <string name="h_beauty">唯美</string>
-    <string name="h_selfie">自拍</string>
-    <string name="h_exposure">露出</string>
-    <string name="h_original">原创</string>
     <string name="can_not_find_version_name">无法识别版本号</string>
-    <string name="load_no_result">啊哦，妹子太害羞，不好意思出來了</string>
-    <string name="try_again">淫家才不信咧</string>
     <string name="save_img_failed">无法保存图片</string>
     <string name="save_img_success">妹子已保存在：</string>
     <string name="view_img_hint">向下拉图片退出浏览；长按图片可以保存到手机~</string>
@@ -90,4 +77,7 @@
     <string name="start_download_update">检测到新版，开始下载…</string>
     <string name="email_not_install">您的手机没有安装邮件app。</string>
 
+
+    <string name="simple_view_behavior">com.colorchen.net.view.SimpleViewBehavior</string>
+    <string name="translate_up_down_behavior">com.colorchen.net.view.TranslateUpDownBehavior</string>
 </resources>

@@ -1,7 +1,6 @@
 package com.colorchen;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -15,6 +14,7 @@ import android.widget.Toast;
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
 import com.colorchen.mvp.view.TabsFragment;
 import com.colorchen.mvp.view.TestJSDemo;
+import com.colorchen.net.OkHttpMainActivity;
 import com.colorchen.ui.BaseActivity;
 import com.colorchen.ui.SettingActivity;
 import com.colorchen.utils.UI;
@@ -29,15 +29,6 @@ public class MainActivity extends BaseActivity
     @Bind(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
-    //    private static final String DEFAULT_TEST_URL = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
-//    private static final String DEFAULT_TEST_URL = "http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8";
-    private static final String DEFAULT_TEST_URL = "http://7xs9fl.media1.z0.glb.clouddn.com/video/4cb0a21d15f53e212c905e309d49d069.mp4";
-//    private static final String DEFAULT_TEST_URL = "http://7xs9fl.media1.z0.glb.clouddn.com/video/48a456c0f36f239716219d6c83ba3f1d.mp4";
-//    private static final String DEFAULT_TEST_URL = "http://7xs9fl.media1.z0.glb.clouddn.com/video/057e5c365f677f91ef2aeddacb13866e.mp4";
-//    private static final String DEFAULT_TEST_URL = "http://7xs9fl.media1.z0.glb.clouddn.com/video/dc668b81fc18d77139ddd85d63c03623.mp4";
-//    private static final String DEFAULT_TEST_URL = "http://remoteconnector.eceibs20.com/test/course/LDOC002DEMO/content/56cea9da3a508.mp4";
-
-
     @Override
     protected void initLayoutId() {
         layoutId = R.layout.activity_main;
@@ -49,7 +40,6 @@ public class MainActivity extends BaseActivity
 
         setupDrawer();
         setNavigationView();
-
         replace(TabsFragment.MENU_NEWS);
     }
 
@@ -155,10 +145,13 @@ public class MainActivity extends BaseActivity
             startActivity(new Intent(this, SettingActivity.class));
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-            Uri uri = Uri.parse(DEFAULT_TEST_URL);
+        } else if (id == R.id.nav_net) {
+            //网络组建
+            startActivity(new Intent(getApplicationContext(), OkHttpMainActivity.class));
+
+        } else if (id == R.id.nav_video) {
+            //视频播放
             startActivity(new Intent(this, VideoPlayerStandardActivity.class)
-                    .setData(uri)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } else if (id == R.id.testJS) {
             startActivity(new Intent(this, TestJSDemo.class));

@@ -48,6 +48,21 @@
             android:name=".mvp.player.VideoPlayerStandardActivity"
             android:label="视频播放器"
             android:configChanges="orientation|keyboardHidden"/>
+        <activity
+            android:name=".net.OkHttpActivity"
+            android:label="网络系统模块"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity
+            android:name=".net.OkHttpMainActivity"
+            android:label="网络系统模块"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity
+            android:name=".net.OkHttpMainActivity"
+            android:label="网络系统模块"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|keyboardHidden"/>
     </application>
 
 </manifest>

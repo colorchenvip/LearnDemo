@@ -21,7 +21,6 @@ public abstract class RecyclerFragment extends BaseFragment implements SwipeRefr
     @Bind(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
 
-    boolean isFirst =true;
     int type;
     int lastPosition;
     int firstPosition;

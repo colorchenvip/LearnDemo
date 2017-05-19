@@ -34,7 +34,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void initViews() {
         setContentView(layoutId);
         ButterKnife.bind(this);
-        mRealm = Realm.getDefaultInstance();
         initAppBar();
     }
 
@@ -82,6 +81,5 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mRealm.close();
     }
 }

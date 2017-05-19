@@ -44,10 +44,12 @@ public class PlayerStandardView extends PlayerView {
 
     public PlayerStandardView(Context context) {
         super(context);
+        init(context);
     }
 
     public PlayerStandardView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     @Override

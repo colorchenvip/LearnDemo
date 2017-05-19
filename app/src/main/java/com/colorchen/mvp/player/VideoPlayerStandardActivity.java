@@ -1,7 +1,6 @@
 package com.colorchen.mvp.player;
 
-import android.net.Uri;
-
+import com.colorchen.Constant;
 import com.colorchen.R;
 import com.colorchen.mvp.player.base.PlayerView;
 import com.colorchen.mvp.player.interf.MediaBuriedPointStandard;
@@ -13,7 +12,7 @@ import com.colorchen.ui.BaseActivity;
  */
 public class VideoPlayerStandardActivity extends BaseActivity {
 
-    private Uri mVideoUri = null;
+    private String mVideoUri = Constant.DEFAULT_TEST_URL_1;
     private PlayerStandardView mPlayer;
 
     @Override
@@ -27,16 +26,14 @@ public class VideoPlayerStandardActivity extends BaseActivity {
     @Override
     protected void initViews() {
         mPlayer = (PlayerStandardView) findViewById(R.id.wz_im_video_player);
-
-        mVideoUri = getIntent().getData();
-        mPlayer.setUp(mVideoUri.toString(), " ");
-        PlayerStandardView.setMediaBuriedPointStandard(buriedPointStandard);
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
+        mPlayer.setUp(mVideoUri, "视频");
+        PlayerStandardView.setMediaBuriedPointStandard(buriedPointStandard);
         mPlayer.startPlay();
     }
 
