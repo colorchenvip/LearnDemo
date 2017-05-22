@@ -2,7 +2,6 @@ package com.colorchen.net.demo;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.graphics.ColorUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,12 @@ import android.widget.TextView;
 
 import com.colorchen.R;
 import com.colorchen.net.UrlUtils;
+import com.colorchen.net.callback.DialogCallback;
+import com.colorchen.net.callback.StringDialogCallback;
 import com.colorchen.net.demo.base.NetBaseDetailActivity;
+import com.colorchen.net.model.LzyResponse;
+import com.colorchen.net.model.ServerModel;
+import com.colorchen.net.utils.ColorUtils;
 import com.lzy.okgo.OkGo;
 
 import butterknife.Bind;

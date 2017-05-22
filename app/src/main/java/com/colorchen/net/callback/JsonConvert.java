@@ -1,9 +1,9 @@
 package com.colorchen.net.callback;
 
+import com.colorchen.net.model.LzyResponse;
+import com.colorchen.net.model.SimpleResponse;
+import com.colorchen.net.utils.Convert;
 import com.google.gson.stream.JsonReader;
-import com.lzy.demo.model.LzyResponse;
-import com.lzy.demo.model.SimpleResponse;
-import com.lzy.demo.utils.Convert;
 import com.lzy.okgo.convert.Converter;
 
 import java.lang.reflect.ParameterizedType;
