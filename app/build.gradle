@@ -40,4 +40,6 @@ dependencies {
     compile 'com.zhy:okhttputils:2.2.0'
     compile 'com.google.code.gson:gson:2.5'
     compile project(':okgo')
+    //右划退出类库
+    compile 'me.imid.swipebacklayout.lib:library:1.0.0'
 }

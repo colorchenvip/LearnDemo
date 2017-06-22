@@ -28,10 +28,8 @@ public class VideoPlayerStandardActivity extends BaseActivity {
         mPlayer = (PlayerStandardView) findViewById(R.id.wz_im_video_player);
     }
 
-
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void initData() {
         mPlayer.setUp(mVideoUri, "视频");
         PlayerStandardView.setMediaBuriedPointStandard(buriedPointStandard);
         mPlayer.startPlay();
@@ -50,8 +48,9 @@ public class VideoPlayerStandardActivity extends BaseActivity {
 
 
     @Override
-    public void onBackPressed() {
+    public void onDestroy() {
         mPlayer.removeAllViews();
+        super.onDestroy();
     }
 
 

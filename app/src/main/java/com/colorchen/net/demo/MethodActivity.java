@@ -60,8 +60,7 @@ public class MethodActivity extends NetBaseDetailActivity implements AdapterView
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 0:
-                OkGo.get(UrlUtils.URL_METHOD)//
-                        .tag(this)//
+                OkGo.get(UrlUtils.URL_METHOD).tag(this)//
                         .headers("header1", "headerValue1")//
                         .params("param1", "paramValue1")//
                         .execute(new DialogCallback<LzyResponse<ServerModel>>(this) {

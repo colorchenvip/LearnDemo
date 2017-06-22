@@ -1,6 +1,7 @@
 package com.colorchen;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
@@ -17,9 +19,12 @@ import com.colorchen.mvp.view.TestJSDemo;
 import com.colorchen.net.OkHttpMainActivity;
 import com.colorchen.ui.BaseActivity;
 import com.colorchen.ui.SettingActivity;
+import com.colorchen.ui.utils.StateBarTranslucentUtils;
 import com.colorchen.utils.UI;
 
 import butterknife.Bind;
+
+import static com.colorchen.LearnDemoApp.context;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,8 +41,8 @@ public class MainActivity extends BaseActivity
 
     @Override
     protected void initViews() {
-        super.initViews();
-
+//        super.initViews();
+        setSwipeBackEnable(false);
         setupDrawer();
         setNavigationView();
         replace(TabsFragment.MENU_NEWS);
@@ -46,6 +51,23 @@ public class MainActivity extends BaseActivity
     private void setNavigationView() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //DrawerLayout兼容4.4
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            //将侧边栏顶部延伸至status bar
+            drawer.setFitsSystemWindows(true);
+            //将主页面顶部延伸至status bar;虽默认为false,但经测试,DrawerLayout需显示设置
+            drawer.setClipToPadding(false);
+        }
+        //设置状态栏透明
+        StateBarTranslucentUtils.setStateBarTranslucent(this);
+        //获得状态栏高度
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int stateBarHeight =  getResources().getDimensionPixelSize(resourceId);
+        //设置margin
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
+        layoutParams.setMargins(0, stateBarHeight, 0, 0);
+        toolbar.setLayoutParams(layoutParams);
     }
 
     private void setupDrawer() {
@@ -106,8 +128,6 @@ public class MainActivity extends BaseActivity
             Toast.makeText(this, "about", Toast.LENGTH_SHORT).show();
             return true;
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 
