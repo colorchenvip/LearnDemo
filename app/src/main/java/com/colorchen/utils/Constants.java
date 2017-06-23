@@ -1,20 +1,23 @@
 package com.colorchen.utils;
 
 /**
- * Created by color on 16/4/25 15:06.
+ * 常量
+ * Author ChenQ on 2017/5/19
+ * email：wxchenq@yutong.com
  */
 public class Constants {
-    /*妹知资源*/
     public static final String TYPE = "type";
     public static final String DATE = "date";
     public static final String ID = "id";
     public static final String PAGE = "page";
     public static final String POSITION = "position";
-    public static final String URL = "url";
-    public static final String DATA = "data";
-    public static final String MENU_TYPE = "menu_type";
-    public static final String SAVE_NUM="save_num";
-    public static final String HAS_HINT = "first_hint";
-    public static final String CHECK_DATE = "check_date";
-    public static final String TEXT = "text";
+
+    public static final String DEFAULT_TEST_URL_LIVE = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    public static final String DEFAULT_TEST_URL_VIDEO = "http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8";
+    public static final String DEFAULT_TEST_URL_1 = "http://7xs9fl.media1.z0.glb.clouddn.com/video/4cb0a21d15f53e212c905e309d49d069.mp4";
+    public static final String DEFAULT_TEST_URL_2 = "http://7xs9fl.media1.z0.glb.clouddn.com/video/48a456c0f36f239716219d6c83ba3f1d.mp4";
+    public static final String DEFAULT_TEST_URL_3 = "http://7xs9fl.media1.z0.glb.clouddn.com/video/057e5c365f677f91ef2aeddacb13866e.mp4";
+    public static final String DEFAULT_TEST_URL_4 = "http://7xs9fl.media1.z0.glb.clouddn.com/video/dc668b81fc18d77139ddd85d63c03623.mp4";
+    public static final String DEFAULT_TEST_URL_5 = "http://remoteconnector.eceibs20.com/test/course/LDOC002DEMO/content/56cea9da3a508.mp4";
+
 }

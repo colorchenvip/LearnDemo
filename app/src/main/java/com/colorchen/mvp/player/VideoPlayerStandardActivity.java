@@ -1,10 +1,10 @@
 package com.colorchen.mvp.player;
 
-import com.colorchen.Constant;
 import com.colorchen.R;
 import com.colorchen.mvp.player.base.PlayerView;
 import com.colorchen.mvp.player.interf.MediaBuriedPointStandard;
 import com.colorchen.ui.BaseActivity;
+import com.colorchen.utils.Constants;
 
 /**
  * 标准的视频播放器
@@ -12,7 +12,7 @@ import com.colorchen.ui.BaseActivity;
  */
 public class VideoPlayerStandardActivity extends BaseActivity {
 
-    private String mVideoUri = Constant.DEFAULT_TEST_URL_1;
+    private String mVideoUri = Constants.DEFAULT_TEST_URL_1;
     private PlayerStandardView mPlayer;
 
     @Override

@@ -20,12 +20,13 @@ import java.util.List;
 import butterknife.Bind;
 
 /**
+ * 顶部的tab管理manager
  * Created by color on 16/4/25 14:53.
  */
 public class TabsFragment extends BaseFragment {
-    public static final String MENU_NEWS = "news";
-    public static final String MENU_PIC = "pic";
-    public static final String MENU_SECRET = "secret";
+    public static final String MENU_MAIN = "tab1";
+    public static final String MENU_ME = "tab2";
+    public static final String MENU_SETTING = "tab3";
 
     private static final int SMOOTHSCROLL_TOP_POSITION = 50;
 
@@ -40,16 +41,23 @@ public class TabsFragment extends BaseFragment {
     /*页面的数量*/
     private List<RecyclerFragment> fragments = new ArrayList<>();
 
-    public static TabsFragment newInstance(String type){
+    public static TabsFragment newInstance(String type) {
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.TYPE,type);
+        bundle.putString(Constants.TYPE, type);
         TabsFragment tabsFragment = new TabsFragment();
         tabsFragment.setArguments(bundle);
         return tabsFragment;
     }
 
     @Override
+    protected void initLayoutId() {
+        layoutId = R.layout.layout_tab_top;
+    }
+
+    @Override
     protected void initViews() {
+        adapter = new TabPagerAdapter(getChildFragmentManager());
+        pager.setAdapter(adapter);
     }
 
     @Override
@@ -59,16 +67,10 @@ public class TabsFragment extends BaseFragment {
 
 
 
-    @Override
-    protected void initLayoutId() {
-        layoutId = R.layout.fragment_tab;
-    }
-
-
-    private void scrollToTop(RecyclerView list){
+    private void scrollToTop(RecyclerView list) {
         if (null != list) {
             int lastPosition;
-            if (MENU_PIC.equals(menuType)) {
+            if (MENU_ME.equals(menuType)) {
                 StaggeredGridLayoutManager manager = (StaggeredGridLayoutManager) list.getLayoutManager();
                 lastPosition = manager.findLastVisibleItemPositions(
                         new int[manager.getSpanCount()])[1];
@@ -86,7 +88,7 @@ public class TabsFragment extends BaseFragment {
     }
 
 
-    public static class TabPagerAdapter extends FragmentPagerAdapter{
+    public static class TabPagerAdapter extends FragmentPagerAdapter {
 
         private List<RecyclerFragment> fragments;
         private List<String> titles;

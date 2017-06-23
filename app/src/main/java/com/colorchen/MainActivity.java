@@ -5,7 +5,10 @@ import android.os.Build;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
@@ -14,25 +17,56 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
+import com.colorchen.mvp.view.MainFragment;
+import com.colorchen.mvp.view.MeFragment;
+import com.colorchen.mvp.view.SettingFragment;
+import com.colorchen.mvp.view.Tab1Fragment;
+import com.colorchen.mvp.view.TabBarSettingFragment;
+import com.colorchen.mvp.view.TabPagerAdapter;
 import com.colorchen.mvp.view.TabsFragment;
+import com.colorchen.mvp.view.TabsFragmentBottom;
 import com.colorchen.mvp.view.TestJSDemo;
 import com.colorchen.net.OkHttpMainActivity;
 import com.colorchen.ui.BaseActivity;
 import com.colorchen.ui.SettingActivity;
 import com.colorchen.ui.utils.StateBarTranslucentUtils;
 import com.colorchen.utils.UI;
+import com.jpeng.jptabbar.BadgeDismissListener;
+import com.jpeng.jptabbar.JPTabBar;
+import com.jpeng.jptabbar.OnTabSelectListener;
+import com.jpeng.jptabbar.anno.NorIcons;
+import com.jpeng.jptabbar.anno.SeleIcons;
+import com.jpeng.jptabbar.anno.Titles;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
 import static com.colorchen.LearnDemoApp.context;
 
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, BadgeDismissListener, OnTabSelectListener {
 
     @Bind(R.id.nav_view)
     NavigationView navView;
     @Bind(R.id.drawer_layout)
     DrawerLayout drawerLayout;
+    @Titles
+    private static final String[] mTitles = {"页面一", "页面二", "页面三", "页面四"};
+    @SeleIcons
+    private static final int[] mSeleIcons = {R.mipmap.tab1_selected, R.mipmap.tab2_selected, R.mipmap.tab3_selected, R.mipmap.tab4_selected};
+
+    @NorIcons
+    private static final int[] mNormalIcons = {R.mipmap.tab1_normal, R.mipmap.tab2_normal, R.mipmap.tab3_normal, R.mipmap.tab4_normal};
+    /*页面的数量*/
+    private List<Fragment> fragments = new ArrayList<>();
+
+    private TabPagerAdapter adapter;
+    @Bind(R.id.viewPagerBottom)
+    ViewPager pager;
+    @Bind(R.id.tabBarBottom)
+    JPTabBar mTabBar;
 
     @Override
     protected void initLayoutId() {
@@ -42,13 +76,43 @@ public class MainActivity extends BaseActivity
     @Override
     protected void initViews() {
 //        super.initViews();
-        setSwipeBackEnable(false);
         setupDrawer();
         setNavigationView();
-        replace(TabsFragment.MENU_NEWS);
+        initTabBar();
+    }
+
+    private void initTabBar() {
+        adapter = new TabPagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(adapter);
+        mTabBar.setTabListener(this);
+        mTabBar.setContainer(pager);
+        mTabBar.setDismissListener(this);
+        //显示圆点模式的徽章
+        //设置容器
+        mTabBar.showBadge(0, 50);
+        //设置Badge消失的代理
+        mTabBar.setTabListener(this);
+        fragments.add(MainFragment.newInstance());
+        fragments.add(TabBarSettingFragment.newInstance());
+        fragments.add(MeFragment.newInstance());
+        fragments.add(Tab1Fragment.newInstance());
+        adapter.setFragments(fragments,mTitles);
+    }
+    @Override
+    public void onDismiss(int position) {
+        if (position == 0) {
+            mTab1.clearCount();
+        }
+    }
+
+    @Override
+    public void onTabSelect(int index) {
+
     }
 
     private void setNavigationView() {
+        //禁止右划推书功能
+        setSwipeBackEnable(false);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -136,7 +200,7 @@ public class MainActivity extends BaseActivity
     public void replace(String type) {
         if (!type.equals(currentType)) {
             currentType = type;
-            replaceFragment(TabsFragment.newInstance(type), type);
+            replaceFragment(TabsFragmentBottom.newInstance(type), type);
         }
     }
 
@@ -158,7 +222,7 @@ public class MainActivity extends BaseActivity
             Snackbar.make(this.getCurrentFocus(), "相机", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else if (id == R.id.nav_gallery) {
-            replace(TabsFragment.MENU_NEWS);
+            replace(TabsFragment.MENU_MAIN);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

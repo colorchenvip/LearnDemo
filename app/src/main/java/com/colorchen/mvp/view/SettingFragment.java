@@ -43,6 +43,13 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
     private boolean first = true;
     private int secretIndex;
 
+    public static SettingFragment newInstance() {
+        Bundle args = new Bundle();
+//        args.putInt(Constants.TYPE, type);
+        SettingFragment fragment = new SettingFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
