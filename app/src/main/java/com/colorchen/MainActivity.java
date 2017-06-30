@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -19,7 +18,6 @@ import android.widget.Toast;
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
 import com.colorchen.mvp.view.MainFragment;
 import com.colorchen.mvp.view.MeFragment;
-import com.colorchen.mvp.view.SettingFragment;
 import com.colorchen.mvp.view.Tab1Fragment;
 import com.colorchen.mvp.view.TabBarSettingFragment;
 import com.colorchen.mvp.view.TabPagerAdapter;
@@ -101,7 +99,7 @@ public class MainActivity extends BaseActivity
     @Override
     public void onDismiss(int position) {
         if (position == 0) {
-            mTab1.clearCount();
+//            mTab1.clearCount();
         }
     }
 
