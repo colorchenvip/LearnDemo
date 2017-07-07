@@ -2,16 +2,21 @@ package com.colorchen.mvp.view;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
 import com.andview.refreshview.XRefreshView;
 import com.colorchen.R;
+import com.colorchen.mvp.player.VideoPlayerStandardActivity;
 import com.colorchen.mvp.view.recycleview.CustomerFooter;
 import com.colorchen.mvp.view.recycleview.IndexPageAdapter;
+import com.colorchen.net.OkHttpMainActivity;
 import com.colorchen.ui.BaseActivity;
 import com.colorchen.ui.BaseFragment;
 import com.colorchen.ui.widget.AdHeader;
@@ -39,12 +44,13 @@ public class MainFragment extends BaseFragment {
 
     private BaseActivity context;
 
-    private List<String> strList = new ArrayList<String>();
+    private List<String> strList = new ArrayList<>();
     private ArrayAdapter<String> adapter;
     private BannerViewPager mLoopViewPager;
     private AdHeader headerView;
-    private int[] mImageIds = new int[]{R.mipmap.test01, R.mipmap.test02,
-            R.mipmap.test03};// 测试图片id
+    private int[] mImageIds = new int[]{R.mipmap.test01, R.mipmap.test02,R.mipmap.test03};// 测试图片id
+
+    private int index = 1;//数据的起点位置
 
     public static MainFragment newInstance() {
         Bundle args = new Bundle();
@@ -62,20 +68,60 @@ public class MainFragment extends BaseFragment {
     @Override
     protected void initViews() {
         context = (BaseActivity) getActivity();
-        for (int i = 0; i < 50; i++) {
+        strList.add(index + " 列表的相关使用");
+        strList.add(++index + " 自定义小视频");
+        strList.add(++index + " okHttp相关使用");
+        index++;
+        for (int i = index; i < 50; i++) {
             strList.add("数据" + i);
         }
-        headerView = new AdHeader(getContext());
-        mLoopViewPager = (BannerViewPager) headerView.findViewById(R.id.index_viewpager);
-        initViewPager();
+        initBanner();
+        initGridView();
+        initRefreshView();
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    private void initGridView() {
+         /*刷新组件的相关设置*/
         mMainFragmentXrv.setPullLoadEnable(true);
-        adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1, strList);
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, strList);
         mMainGv.setAdapter(adapter);
+        mMainGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+
+                        break;
+                    case 1:
+                        //视频播放
+                        startActivity(new Intent(context, VideoPlayerStandardActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        break;
+                    case 2:
+                        //网络组建
+                        startActivity(new Intent(context, OkHttpMainActivity.class));
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+
+                }
+            }
+        });
+    }
+
+    private void initRefreshView() {
         mMainFragmentXrv.setPinnedTime(1000);
         // mMainFragmentXrv.setAutoLoadMore(false);
         mMainFragmentXrv.setCustomHeaderView(headerView);
-        mMainFragmentXrv.setCustomFooterView(new CustomerFooter(getContext()));
-        // mMainFragmentXrv.setCustomHeaderView(new XRefreshViewHeader(this));
+        mMainFragmentXrv.setCustomFooterView(new CustomerFooter(context));
+//        mMainFragmentXrv.setCustomHeaderView(new XRefreshViewHeader(context));
         mMainFragmentXrv.setMoveForHorizontal(true);
 //        mMainFragmentXrv.setPinnedContent(true);
         mMainFragmentXrv.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
@@ -117,20 +163,18 @@ public class MainFragment extends BaseFragment {
         });
     }
 
-    @Override
-    protected void initData() {
-
+    private void initBanner() {
+        //初始化banner
+        headerView = new AdHeader(getContext());
+        mLoopViewPager = (BannerViewPager) headerView.findViewById(R.id.index_viewpager);
+        IndexPageAdapter pageAdapter = new IndexPageAdapter(getContext(), mImageIds);
+        mLoopViewPager.setAdapter(pageAdapter);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mMainFragmentXrv.startRefresh();
-    }
-
-    private void initViewPager() {
-        IndexPageAdapter pageAdapter = new IndexPageAdapter(getContext(), mImageIds);
-        mLoopViewPager.setAdapter(pageAdapter);
     }
 
     @Override

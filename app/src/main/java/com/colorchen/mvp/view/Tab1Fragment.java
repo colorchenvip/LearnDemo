@@ -6,7 +6,7 @@ import com.colorchen.R;
 import com.colorchen.ui.BaseFragment;
 
 /**
- * 我
+ * 其他
  * @author ChenQ
  * @time 2017/6/23 17:14
  * @emachenvip@163.com

@@ -21,6 +21,7 @@ import com.colorchen.R;
 import java.util.Calendar;
 
 /**
+ * 列表的下拉刷新头View
  * Author ChenQ on 2017/6/23
  * email：wxchenq@yutong.com
  */
