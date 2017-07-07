@@ -1,87 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+              android:layout_height="match_parent"
               android:padding="15dp"
-              android:orientation="vertical"
-              android:layout_height="match_parent">
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="消息测试"
+        android:textSize="19sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@mipmap/minus_50"/>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@mipmap/plus_50"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前的消息个数为:"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:inputType="number"
+                android:text="50"
+                android:textColor="#f00"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示文字"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示圆点"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="隐藏徽章"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择的动画类型"
+        android:layout_marginBottom="10dp"
+        android:textSize="19sp"
+        android:id="@+id/tab2Tv"/>
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缩放"
+            android:checked="true"
+            android:id="@+id/radioButton1"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跳跃"
+            android:id="@+id/radioButton2"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="翻转"
+            android:id="@+id/radioButton3"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旋转"
+            android:id="@+id/radioButton4"/>
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="消息测试"
-        android:layout_marginBottom="10dp"
-        android:textSize="19sp"
-        android:id="@+id/textView"/>
+        android:text="是否禁用页面滑动动画"
+        android:gravity="center"
+        android:layout_margin="10dp"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RadioGroup
+        android:id="@+id/radioGroup1"
         android:layout_width="match_parent"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:orientation="horizontal"
         android:layout_height="wrap_content">
 
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@null"
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开"
+            android:id="@+id/radioButton5"/>
 
-            android:scaleType="fitXY"
-            android:src="@mipmap/minus_50"
-            android:id="@+id/imageButton1"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="关闭"
+            android:id="@+id/radioButton6"/>
+    </RadioGroup>
 
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@null"
-            android:scaleType="fitXY"
-            android:layout_marginLeft="20dp"
-            android:src="@mipmap/plus_50"
-            android:id="@+id/imageButton2"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="是否禁用图标和标题渐变"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:id="@+id/textView2"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
         android:layout_width="match_parent"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:orientation="horizontal"
         android:layout_height="wrap_content">
 
-        <TextView
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="当前的消息个数为:"
-            android:textSize="15sp"
-            />
+            android:text="打开"
+            android:id="@+id/radioButton7"/>
 
-        <EditText
-            android:id="@+id/et_count"
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="#f00"
-            android:text="50"
+            android:checked="true"
+            android:text="关闭"
+            android:id="@+id/radioButton8"/>
+    </RadioGroup>
 
-            android:inputType="number"
-            android:layout_marginLeft="20dp"
-            />
-    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="显示文字"
-        android:id="@+id/button1"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="显示圆点"
-        android:id="@+id/button2"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="隐藏徽章"
-        android:id="@+id/button3"/>
 </LinearLayout>

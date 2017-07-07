@@ -16,6 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
+import com.colorchen.ui.BaseActivity;
+import com.colorchen.ui.SettingActivity;
+import com.colorchen.ui.utils.StateBarTranslucentUtils;
 import com.colorchen.mvp.view.MainFragment;
 import com.colorchen.mvp.view.MeFragment;
 import com.colorchen.mvp.view.Tab1Fragment;
@@ -25,9 +28,6 @@ import com.colorchen.mvp.view.TabsFragment;
 import com.colorchen.mvp.view.TabsFragmentBottom;
 import com.colorchen.mvp.view.TestJSDemo;
 import com.colorchen.net.OkHttpMainActivity;
-import com.colorchen.ui.BaseActivity;
-import com.colorchen.ui.SettingActivity;
-import com.colorchen.ui.utils.StateBarTranslucentUtils;
 import com.colorchen.utils.UI;
 import com.jpeng.jptabbar.BadgeDismissListener;
 import com.jpeng.jptabbar.JPTabBar;
@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity
     @Bind(R.id.drawer_layout)
     DrawerLayout drawerLayout;
     @Titles
-    private static final String[] mTitles = {"页面一", "页面二", "页面三", "页面四"};
+    private static final String[] mTitles = {"主页", "tab设置", "其他", "我"};
     @SeleIcons
     private static final int[] mSeleIcons = {R.mipmap.tab1_selected, R.mipmap.tab2_selected, R.mipmap.tab3_selected, R.mipmap.tab4_selected};
 
@@ -80,26 +80,26 @@ public class MainActivity extends BaseActivity
     }
 
     private void initTabBar() {
-        adapter = new TabPagerAdapter(getSupportFragmentManager());
+        fragments.add(MainFragment.newInstance());
+        fragments.add(TabBarSettingFragment.newInstance());
+        fragments.add(Tab1Fragment.newInstance());
+        fragments.add(MeFragment.newInstance());
+        adapter = new TabPagerAdapter(getSupportFragmentManager(),fragments,mTitles);
         pager.setAdapter(adapter);
         mTabBar.setTabListener(this);
         mTabBar.setContainer(pager);
         mTabBar.setDismissListener(this);
         //显示圆点模式的徽章
         //设置容器
-        mTabBar.showBadge(0, 50);
+        mTabBar.showBadge(1, 50);
         //设置Badge消失的代理
         mTabBar.setTabListener(this);
-        fragments.add(MainFragment.newInstance());
-        fragments.add(TabBarSettingFragment.newInstance());
-        fragments.add(MeFragment.newInstance());
-        fragments.add(Tab1Fragment.newInstance());
-        adapter.setFragments(fragments,mTitles);
+
     }
     @Override
     public void onDismiss(int position) {
-        if (position == 0) {
-//            mTab1.clearCount();
+        if (position == 1) {
+            TabBarSettingFragment.newInstance().clearCount();
         }
     }
 
@@ -107,9 +107,12 @@ public class MainActivity extends BaseActivity
     public void onTabSelect(int index) {
 
     }
+    public JPTabBar getTaBar() {
+        return mTabBar;
+    }
 
     private void setNavigationView() {
-        //禁止右划推书功能
+        //禁止右划退出功能
         setSwipeBackEnable(false);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

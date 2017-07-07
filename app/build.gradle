@@ -19,6 +19,7 @@ android {
         versionName "1.0"
 
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
 
@@ -31,7 +32,10 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
+    compile project(':okgo')
+    //右划退出类库
+    compile project(':xFefreshViewLibrary')
+    compile project(':tabBarLibrary')
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support:design:25.3.0'
     compile 'com.jakewharton:butterknife:7.0.1'
@@ -39,9 +43,8 @@ dependencies {
     compile 'org.jsoup:jsoup:1.8.3'
     compile 'com.zhy:okhttputils:2.2.0'
     compile 'com.google.code.gson:gson:2.5'
-    compile project(':okgo')
-    //右划退出类库
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
-    compile project(':xFefreshViewLibrary')
-    compile project(':tabBarLibrary')
+    compile 'com.android.support:support-v4:25.3.0'
+    compile 'com.android.support:support-vector-drawable:25.3.0'
+    testCompile 'junit:junit:4.12'
 }

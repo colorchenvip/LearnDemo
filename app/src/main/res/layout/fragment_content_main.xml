@@ -2,24 +2,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fff">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="主页 页面"/>
     <com.andview.refreshview.XRefreshView
-        android:id="@+id/xRefreshView"
+        android:id="@+id/mainFragmentXrv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#fff">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerViewRV"
+        android:layout_height="match_parent">
+        <GridView
+            android:id="@+id/mainGv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#bbccaa"
-            android:scrollbars="vertical"/>
+            android:layout_height="wrap_content"
+            android:numColumns="2" />
     </com.andview.refreshview.XRefreshView>
 </RelativeLayout>

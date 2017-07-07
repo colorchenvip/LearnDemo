@@ -6,8 +6,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"
         android:text="tab1 页面"/>
 
 </RelativeLayout>

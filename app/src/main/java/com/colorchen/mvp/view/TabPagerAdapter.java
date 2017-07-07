@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,14 +13,11 @@ import java.util.List;
  * email：wxchenq@yutong.com
  */
 public class TabPagerAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragments;
-    private List<String> titles;
+    private List<Fragment> fragments = new ArrayList<>();
+    private List<String> titles = new ArrayList<>();
 
-    public TabPagerAdapter(FragmentManager fm) {
+    public TabPagerAdapter(FragmentManager fm,List<Fragment> fragments, String[] titles) {
         super(fm);
-    }
-
-    public void setFragments(List<Fragment> fragments, String[] titles) {
         this.fragments = fragments;
         this.titles.clear();
         for (String item : titles) {

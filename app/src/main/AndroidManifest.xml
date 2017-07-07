@@ -1,65 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.colorchen">
+          package="com.colorchen">
 
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_LOGS"/>
     <uses-permission android:name="android.permission.GET_TASKS"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".LearnDemoApp"
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
             android:theme="@style/AppThemeNoTranslucent">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="主页面"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@style/AppThemeNoTranslucent"
-            android:screenOrientation="portrait"/>
+            android:label="主页面"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTranslucent"/>
         <activity
             android:name=".mvp.view.TestJSDemo"
-            android:label="TestJSDemo"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:configChanges="orientation|keyboardHidden"
+            android:label="TestJSDemo"/>
         <activity
             android:name=".ui.SettingActivity"
-            android:label="设置页面"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:configChanges="orientation|keyboardHidden"
+            android:label="设置页面"/>
         <activity
             android:name=".mvp.player.VideoPlayerStandardActivity"
-            android:label="视频播放器"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:configChanges="orientation|keyboardHidden"
+            android:label="视频播放器"/>
         <activity
             android:name=".net.OkHttpActivity"
-            android:label="网络系统模块"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:configChanges="orientation|keyboardHidden"
+            android:label="网络系统模块"/>
         <activity
             android:name=".net.OkHttpMainActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:label="网络系统模块"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".mvp.view.recycleview.BannerRecyclerViewActivity">
+        </activity>
     </application>
 
 </manifest>
