@@ -28,6 +28,7 @@ public class ScrollAdapter extends PagerAdapter {
 
     public void setDatas(List<MeiZiModel.Result> mDatas) {
         this.mDatas = mDatas;
+        notifyDataSetChanged();
     }
 
     public ScrollAdapter(Context context) {
@@ -42,8 +43,6 @@ public class ScrollAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-
-
         return false;
     }
 

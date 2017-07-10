@@ -38,11 +38,12 @@ public class DataBindingActivity extends AppCompatActivity {
 
     private void init() {
         adapter = new ScrollAdapter(this);
-        mIndexViewPager.setAdapter(adapter);
+
         //http://gank.io/api/data/福利/{11}/{2}
         ServiceGenerator.getMeiZi(11, 1, new MeiZiCallBack() {
             @Override
             public void onSuccess(List<MeiZiModel.Result> result) {
+                mIndexViewPager.setAdapter(adapter);
                 adapter.setDatas(result);
                 Log.i("dataBinding","请求数据成功");
             }
