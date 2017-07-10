@@ -14,6 +14,7 @@ import android.widget.GridView;
 import com.andview.refreshview.XRefreshView;
 import com.colorchen.R;
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
+import com.colorchen.mvp.function.databinding.DataBindingActivity;
 import com.colorchen.mvp.view.recycleview.CustomerFooter;
 import com.colorchen.mvp.view.recycleview.IndexPageAdapter;
 import com.colorchen.net.OkHttpMainActivity;
@@ -48,7 +49,7 @@ public class MainFragment extends BaseFragment {
     private ArrayAdapter<String> adapter;
     private BannerViewPager mLoopViewPager;
     private AdHeader headerView;
-    private int[] mImageIds = new int[]{R.mipmap.test01, R.mipmap.test02,R.mipmap.test03};// 测试图片id
+    private int[] mImageIds = new int[]{R.mipmap.test01, R.mipmap.test02, R.mipmap.test03};// 测试图片id
 
     private int index = 1;//数据的起点位置
 
@@ -71,6 +72,7 @@ public class MainFragment extends BaseFragment {
         strList.add(index + " 列表的相关使用");
         strList.add(++index + " 自定义小视频");
         strList.add(++index + " okHttp相关使用");
+        strList.add(++index + " dataBinding 使用案例");
         index++;
         for (int i = index; i < 50; i++) {
             strList.add("数据" + i);
@@ -107,6 +109,8 @@ public class MainFragment extends BaseFragment {
                         startActivity(new Intent(context, OkHttpMainActivity.class));
                         break;
                     case 3:
+                        //dataBinding use
+                        startActivity(new Intent(context, DataBindingActivity.class));
                         break;
                     case 4:
                         break;
@@ -131,7 +135,9 @@ public class MainFragment extends BaseFragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        mMainFragmentXrv.stopRefresh();
+                        if (mMainFragmentXrv != null) {
+                            mMainFragmentXrv.stopRefresh();
+                        }
                     }
                 }, 2000);
             }

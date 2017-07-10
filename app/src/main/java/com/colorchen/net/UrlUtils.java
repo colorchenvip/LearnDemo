@@ -6,6 +6,7 @@ package com.colorchen.net;
  * email：wxchenq@yutong.com
  */
 public class UrlUtils {
+    public static final String SERVER2 = "http://gank.io/";
     public static final String SERVER = "http://server.jeasonlzy.com/OkHttpUtils/";
     public static final String URL_METHOD = SERVER + "method";
     public static final String URL_CACHE = SERVER + "cache";

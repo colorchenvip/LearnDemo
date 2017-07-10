@@ -16,26 +16,36 @@
     <com.colorchen.ui.widget.AutoFlowView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <Button
+            android:id="@+id/tab1Button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="小宝贝"/>
+
         <Button
+            android:id="@+id/tab1Button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="你就是我的唯一"/>
+
         <Button
+            android:id="@+id/tab1Button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="野百合也有春天"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="龙的传人"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="向左走向右走"/>
+
     </com.colorchen.ui.widget.AutoFlowView>
 
 </LinearLayout>
+
