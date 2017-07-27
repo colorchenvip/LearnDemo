@@ -4,25 +4,35 @@
         <Preference
             android:key="clear_cache"
             android:summary="@string/set_current_cache"
-            android:title="@string/set_clear_cache" />
+            android:title="@string/set_clear_cache"/>
         <SwitchPreference
             android:defaultValue="false"
             android:key="original_splash"
             android:summary="@string/set_original_splash"
-            android:title="@string/original_splash" />
+            android:title="@string/original_splash"/>
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="welcome_splash"
+            android:summary="@string/set_original_splash"
+            android:title="@string/original_splash"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/action_about">
         <SwitchPreference
             android:defaultValue="true"
             android:key="check_version"
-            android:title="@string/set_check_version" />
+            android:title="@string/set_check_version"/>
         <Preference
+            android:icon="@mipmap/ic_launcher"
             android:key="feedback"
             android:summary="@string/set_post_feedback"
-            android:title="@string/set_feedback" />
+            android:title="@string/set_feedback"/>
         <Preference
             android:key="other"
             android:summary="用于扩展其他功能"
-            android:title="其他" />
+            android:title="其他"/>
+        <RingtonePreference
+            android:title="@string/about_me"/>
+
     </PreferenceCategory>
+
 </PreferenceScreen>

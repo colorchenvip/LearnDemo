@@ -22,6 +22,7 @@ import java.io.File;
 import java.util.List;
 
 /**
+ * 系统设置页面
  * Created by color on 16/4/25 20:20.
  */
 public class SettingFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener{
@@ -29,6 +30,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
     public static final String FEED_BACK = "feedback";
     public static final String APP_VERSION = "check_version";
     public static final String ORIGINAL_SPLASH = "original_splash";
+    public static final String WELCOME_SPLASH = "welcome_splash";
     public static final String SECRET_MODE = "secret_mode";
     private static final long DURATION = 300;
 
@@ -36,6 +38,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
     private Preference about;
     private Preference version;
     private Preference splash;
+    private Preference welcome;
     private CheckBoxPreference enableSister;
     private View rootView;
 
@@ -68,6 +71,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
         about = findPreference(FEED_BACK);
         version = findPreference(APP_VERSION);
         splash = findPreference(ORIGINAL_SPLASH);
+        welcome = findPreference(WELCOME_SPLASH);
         clearCache.setSummary(clearCache.getSummary()+" "+ getCacheSize());
         
         splash.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {

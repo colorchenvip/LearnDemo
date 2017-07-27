@@ -10,7 +10,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/customseekbar" />
+            <option value="$PROJECT_DIR$/earthlibs" />
             <option value="$PROJECT_DIR$/okgo" />
+            <option value="$PROJECT_DIR$/publiclibrary" />
+            <option value="$PROJECT_DIR$/splashlibrary" />
             <option value="$PROJECT_DIR$/tabBarLibrary" />
             <option value="$PROJECT_DIR$/xFefreshViewLibrary" />
           </set>

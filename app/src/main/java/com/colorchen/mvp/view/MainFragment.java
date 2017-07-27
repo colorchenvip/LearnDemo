@@ -13,8 +13,9 @@ import android.widget.GridView;
 
 import com.andview.refreshview.XRefreshView;
 import com.colorchen.R;
-import com.colorchen.mvp.player.VideoPlayerStandardActivity;
 import com.colorchen.mvp.function.databinding.DataBindingActivity;
+import com.colorchen.mvp.function.earth.BaiDuEarthActivity;
+import com.colorchen.mvp.player.VideoPlayerStandardActivity;
 import com.colorchen.mvp.view.recycleview.CustomerFooter;
 import com.colorchen.mvp.view.recycleview.IndexPageAdapter;
 import com.colorchen.net.OkHttpMainActivity;
@@ -72,7 +73,8 @@ public class MainFragment extends BaseFragment {
         strList.add(index + " 列表的相关使用");
         strList.add(++index + " 自定义小视频");
         strList.add(++index + " okHttp相关使用");
-        strList.add(++index + " dataBinding 使用案例");
+        strList.add(++index + " dataBinding 案例");
+        strList.add(++index + " 地图使用案例");
         index++;
         for (int i = index; i < 50; i++) {
             strList.add("数据" + i);
@@ -80,11 +82,12 @@ public class MainFragment extends BaseFragment {
         initBanner();
         initGridView();
         initRefreshView();
+
     }
 
     @Override
     protected void initData() {
-
+        mMainFragmentXrv.startRefresh();
     }
 
     private void initGridView() {
@@ -113,6 +116,10 @@ public class MainFragment extends BaseFragment {
                         startActivity(new Intent(context, DataBindingActivity.class));
                         break;
                     case 4:
+                        // earth use 地图使用
+                        startActivity(new Intent(context, BaiDuEarthActivity.class));
+                        break;
+                     default:
                         break;
 
                 }
@@ -180,7 +187,6 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        mMainFragmentXrv.startRefresh();
     }
 
     @Override

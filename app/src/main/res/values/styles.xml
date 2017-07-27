@@ -36,8 +36,9 @@
     </style>
 
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <style name="jc_vertical_progressBar">
         <item name="android:maxWidth">12.0dip</item>
@@ -57,6 +58,7 @@
         <item name="android:windowAnimationStyle">@style/jc_popup_toast_anim</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
+
     <style name="jc_popup_toast_anim" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>

@@ -51,8 +51,10 @@
     <string name="column_not_available">栏目未完成，请更新或联系作者 :D</string>
     <string name="clear_cache_success">缓存已清理</string>
     <string name="clear_cache_failed">缓存删除失败</string>
-    <string name="original_splash">原始启动图</string>
-    <string name="set_original_splash">使用原始启动图而不是从网络获取</string>
+    <string name="original_splash">欢迎页</string>
+    <string name="set_original_splash">打开每次进去都会出现欢迎页面</string>
+    <string name="title_welcome">运营闪屏</string>
+    <string name="set_welcome">默认，每次进入都会出现，关闭则不出现</string>
     <string name="share_app_description">这个Android项目很不错 https://github.com/DanteAndroid/Knowledge/</string>
     <string name="share_app">分享应用</string>
     <string name="tips">贴士</string>
@@ -151,4 +153,8 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_bai_du_earth">百度地图</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_baiduearthactivity_list">BaiDuEarthActivity</string>
+    <string name="title_baiduearthactivity_detail">BaiDuEarthActivity Detail</string>
 </resources>

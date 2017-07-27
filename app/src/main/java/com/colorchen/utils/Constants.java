@@ -20,4 +20,6 @@ public class Constants {
     public static final String DEFAULT_TEST_URL_4 = "http://7xs9fl.media1.z0.glb.clouddn.com/video/dc668b81fc18d77139ddd85d63c03623.mp4";
     public static final String DEFAULT_TEST_URL_5 = "http://remoteconnector.eceibs20.com/test/course/LDOC002DEMO/content/56cea9da3a508.mp4";
 
+
+    public static final String IS_LOGIN = "is_login";
 }

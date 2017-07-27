@@ -7,7 +7,6 @@ import android.annotation.TargetApi;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
-import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -32,6 +31,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.colorchen.utils.Constants;
+import com.colorchen.utils.SPUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,8 +76,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         public void handleMessage(Message msg) {
             if (msg.what == 0){
                 // 16/4/13 跳转主界面
+                SPUtil.save(Constants.IS_LOGIN,true);
                 Toast.makeText(context,"登陆成功",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//                startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 finish();
             }else if (msg.what == 1){
                 Toast.makeText(context,"登陆失败",Toast.LENGTH_LONG).show();

@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
+import com.colorchen.splashlibrary.ColorSplashView;
 import com.colorchen.ui.BaseActivity;
 import com.colorchen.ui.SettingActivity;
 import com.colorchen.ui.utils.StateBarTranslucentUtils;
@@ -28,6 +29,8 @@ import com.colorchen.mvp.view.TabsFragment;
 import com.colorchen.mvp.view.TabsFragmentBottom;
 import com.colorchen.mvp.view.TestJSDemo;
 import com.colorchen.net.OkHttpMainActivity;
+import com.colorchen.utils.Constants;
+import com.colorchen.utils.SPUtil;
 import com.colorchen.utils.UI;
 import com.jpeng.jptabbar.BadgeDismissListener;
 import com.jpeng.jptabbar.JPTabBar;
@@ -74,9 +77,33 @@ public class MainActivity extends BaseActivity
     @Override
     protected void initViews() {
 //        super.initViews();
+        initSplash();
+        initLogin();
         setupDrawer();
         setNavigationView();
         initTabBar();
+    }
+
+    private void initLogin() {
+        if (!SPUtil.getBoolean(Constants.IS_LOGIN)){
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+        }
+    }
+
+    private void initSplash() {
+        ColorSplashView.showSplashView(this,3,R.drawable.color__splash,new ColorSplashView.OnSplashViewActionListener(){
+
+            @Override
+            public void onSplashImageClick(String actionUrl) {
+                // TODO: 2017/7/27  点击跳转
+            }
+
+            @Override
+            public void onSplashViewDismiss(boolean initiativeDismiss) {
+
+            }
+        });
+        ColorSplashView.updateSplashData(this, "http://ww2.sinaimg.cn/large/72f96cbagw1f5mxjtl6htj20g00sg0vn.jpg", "http://jkyeo.com");
     }
 
     private void initTabBar() {
@@ -227,9 +254,10 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
+            //系统设置
             startActivity(new Intent(this, SettingActivity.class));
         } else if (id == R.id.nav_share) {
-
+            startActivity(new Intent(getApplicationContext(),WelcomeColorchen.class));
         } else if (id == R.id.nav_net) {
             //网络组建
             startActivity(new Intent(getApplicationContext(), OkHttpMainActivity.class));
