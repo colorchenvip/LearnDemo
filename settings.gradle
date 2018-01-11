@@ -1,1 +1,1 @@
-include ':app', ':okgo', ':xFefreshViewLibrary', ':tabBarLibrary', ':earthlibs', ':publiclibrary', ':splashlibrary', ':customseekbar'
+include ':app', ':okgo', ':xFefreshViewLibrary', ':tabBarLibrary', ':splashlibrary', ':customseekbar', ':qbase'

@@ -1,5 +1,6 @@
 package com.colorchen.mvp.function.databinding.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
@@ -7,10 +8,12 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 /**
- * 使用Glide 加载图片
- * Author ChenQ on 2017/7/10
+ * des：使用Glide 加载图片
+ * @author ChenQ
+ * @date 2017-12-4
  * email：wxchenq@yutong.com
  */
+@SuppressLint("AppCompatCustomView")
 public class CustomImage extends ImageView{
     public CustomImage(Context context) {
         super(context);
@@ -24,6 +27,6 @@ public class CustomImage extends ImageView{
         super(context, attrs, defStyleAttr);
     }
     public void load(String url){
-        Glide.with(this.getContext().getApplicationContext()).load(url).fitCenter().into(this);
+        Glide.with(this.getContext().getApplicationContext()).load(url).into(this);
     }
 }

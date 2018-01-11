@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.colorchen.LearnDemoApp;
+import com.colorchen.App;
 import com.colorchen.R;
 import com.colorchen.utils.AccountManager;
 import com.colorchen.utils.FileUtil;
@@ -105,7 +105,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
                 break;
             case FEED_BACK:
                 Intent email = new Intent(Intent.ACTION_SENDTO);
-                PackageManager packageManager = LearnDemoApp.context.getPackageManager();
+                PackageManager packageManager = App.context.getPackageManager();
                 List activities = packageManager.queryIntentActivities(email,
                         PackageManager.MATCH_DEFAULT_ONLY);
                 if (activities.size() > 0) {

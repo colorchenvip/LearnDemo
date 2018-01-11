@@ -6,7 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
-import com.colorchen.LearnDemoApp;
+import com.colorchen.App;
 import com.colorchen.R;
 
 import java.io.File;
@@ -17,13 +17,13 @@ import java.io.File;
 public class AccountManager {
     public static String getVersionName() {
         try {
-            PackageManager manager = LearnDemoApp.context.getPackageManager();
-            PackageInfo info = manager.getPackageInfo(LearnDemoApp.context.getPackageName(), 0);
+            PackageManager manager = App.context.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(App.context.getPackageName(), 0);
             String version = info.versionName;
-            return LearnDemoApp.context.getString(R.string.version) + version;
+            return App.context.getString(R.string.version) + version;
         } catch (Exception e) {
             e.printStackTrace();
-            return LearnDemoApp.context.getString(R.string.can_not_find_version_name);
+            return App.context.getString(R.string.can_not_find_version_name);
         }
     }
 
@@ -38,7 +38,7 @@ public class AccountManager {
     public static boolean clearCache() {
         //this method does not work on cacheDir
         // but works for fileDir, don't know why
-        File cacheDir = LearnDemoApp.context.getCacheDir();
+        File cacheDir = App.context.getCacheDir();
         for (File file : cacheDir.listFiles()) {
             if (!file.delete()) {
                 return false;

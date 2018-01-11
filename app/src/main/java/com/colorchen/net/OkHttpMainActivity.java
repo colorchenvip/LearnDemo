@@ -18,7 +18,7 @@ import com.colorchen.net.base.OkBaseActivity;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -26,10 +26,10 @@ import butterknife.OnClick;
  * Author ChenQ on 2017/5/19
  * email：wxchenq@yutong.com
  */
-public class OkHttpMainActivity extends OkBaseActivity{
-    @Bind(R.id.toolbar)
+public class OkHttpMainActivity extends OkBaseActivity {
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     private ArrayList<OkHttpModel> items;
 
@@ -87,7 +87,7 @@ public class OkHttpMainActivity extends OkBaseActivity{
 
         OkHttpModel model5 = new OkHttpModel();
         model5.title = "自动解析Json对象";
-        model5.des = "1.自动解析JavaBean对象\n" + //
+        model5.des = "1.自动解析JavaBean对象\n" +
                 "2.自动解析List<JavaBean>集合对象";
         model5.type = 0;
         items.add(model5);
@@ -209,18 +209,35 @@ public class OkHttpMainActivity extends OkBaseActivity{
             if (position == 7) startActivity(new Intent(MainActivity.this, CacheDemoActivity.class));
             if (position == 9) startActivity(new Intent(MainActivity.this, DownloadActivity.class));
             if (position == 10) startActivity(new Intent(MainActivity.this, UploadActivity.class));*/
-            if (position == 1) showToast("001");
-            if (position == 3) startActivity(new Intent(OkHttpMainActivity.this, OkHttpActivity.class));
-            if (position == 4) showToast("004");
-            if (position == 5) showToast("005");
-            if (position == 6) showToast("006");
-            if (position == 7) showToast("007");
-            if (position == 9) showToast("009");
-            if (position == 10) showToast("0010");
+            if (position == 1) {
+                showToast("001");
+            }
+            if (position == 3) {
+                startActivity(new Intent(OkHttpMainActivity.this, OkHttpActivity.class));
+            }
+            if (position == 4) {
+                showToast("004");
+
+                if (position == 5) {
+                    showToast("005");
+                }
+                if (position == 6) {
+                    showToast("006");
+                }
+                if (position == 7) {
+                    showToast("007");
+                }
+                if (position == 9) {
+                    showToast("009");
+                }
+                if (position == 10) {
+                    showToast("0010");
+                }
+            }
         }
     }
 
-    private class OkHttpModel {
+    public class OkHttpModel {
         public String title;
         public String des;
         public int type;

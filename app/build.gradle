@@ -1,39 +1,28 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
-repositories {
-    flatDir {
-        dir 'libs'
-    }
-}
+
 android {
     signingConfigs {
         learndemokey {
             keyAlias 'colorchen'
             keyPassword 'color0789'
-            storeFile file('E:/colorchen/learndemokey.jks')
+            storeFile file('../learndemokey.jks')
             storePassword 'color0789'
         }
     }
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "com.colorchen"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionName rootProject.ext.versionName
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionName "1.0.1"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         signingConfig signingConfigs.learndemokey
     }
-    sourceSets {
-        main {
-            jniLibs.srcDir 'libs'
-        }
-        instrumentTest.setRoot('tests')
-        debug.setRoot('build-types/debug')
-        release.setRoot('build-types/release')
-    }
+
     dataBinding {
         enabled = true
     }
@@ -52,15 +41,35 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "4g"
+    }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
         exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/services/javax.annotation.processing.Processor'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
+
     }
 }
 
@@ -68,21 +77,20 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //okhttp
     compile 'com.zhy:okhttputils:2.2.0'
-    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.google.code.gson:gson:2.8.2'
     //net
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.github.bumptech.glide:glide:4.2.0'
     compile 'org.jsoup:jsoup:1.8.3'
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
-    testCompile 'junit:junit:4.12'
     compile project(':okgo')
     //多功能下拉刷新组件
     compile project(':xFefreshViewLibrary')
     //底部栏组件
     compile project(':tabBarLibrary')
-    compile project(':publiclibrary')
     compile project(':splashlibrary')
     compile project(':customseekbar')
+    implementation project(':qbase')
 }

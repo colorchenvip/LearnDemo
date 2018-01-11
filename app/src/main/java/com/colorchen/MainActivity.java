@@ -42,16 +42,22 @@ import com.jpeng.jptabbar.anno.Titles;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
-import static com.colorchen.LearnDemoApp.context;
+import static com.colorchen.App.context;
 
+/**
+ * des：MainActivity
+ * @author ChenQ
+ * @date 2017-12-4
+ * email：wxchenq@yutong.com
+ */
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, BadgeDismissListener, OnTabSelectListener {
 
-    @Bind(R.id.nav_view)
+    @BindView(R.id.nav_view)
     NavigationView navView;
-    @Bind(R.id.drawer_layout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
     @Titles
     private static final String[] mTitles = {"主页", "tab设置", "其他", "我"};
@@ -60,13 +66,15 @@ public class MainActivity extends BaseActivity
 
     @NorIcons
     private static final int[] mNormalIcons = {R.mipmap.tab1_normal, R.mipmap.tab2_normal, R.mipmap.tab3_normal, R.mipmap.tab4_normal};
-    /*页面的数量*/
+    /**
+     * 页面的数量
+     */
     private List<Fragment> fragments = new ArrayList<>();
 
     private TabPagerAdapter adapter;
-    @Bind(R.id.viewPagerBottom)
+    @BindView(R.id.viewPagerBottom)
     ViewPager pager;
-    @Bind(R.id.tabBarBottom)
+    @BindView(R.id.tabBarBottom)
     JPTabBar mTabBar;
 
     @Override
@@ -76,9 +84,9 @@ public class MainActivity extends BaseActivity
 
     @Override
     protected void initViews() {
-//        super.initViews();
+       /* super.initViews();*/
         initSplash();
-        initLogin();
+//        initLogin();
         setupDrawer();
         setNavigationView();
         initTabBar();
@@ -139,8 +147,6 @@ public class MainActivity extends BaseActivity
     }
 
     private void setNavigationView() {
-        //禁止右划退出功能
-        setSwipeBackEnable(false);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

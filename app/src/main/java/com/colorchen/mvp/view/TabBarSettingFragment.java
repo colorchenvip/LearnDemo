@@ -19,7 +19,7 @@ import com.jpeng.jptabbar.animate.JumpAnimater;
 import com.jpeng.jptabbar.animate.RotateAnimater;
 import com.jpeng.jptabbar.animate.ScaleAnimater;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * tabBar 控件的设置
@@ -30,26 +30,26 @@ import butterknife.Bind;
  */
 public class TabBarSettingFragment extends BaseFragment implements View.OnClickListener, TextWatcher, RadioGroup.OnCheckedChangeListener {
 
-    @Bind(R.id.et_count)
+    @BindView(R.id.et_count)
     EditText mNumberEt;
-    @Bind(R.id.imageButton1)
+    @BindView(R.id.imageButton1)
     ImageButton mMinusIb;
-    @Bind(R.id.imageButton2)
+    @BindView(R.id.imageButton2)
     ImageButton mPlusIb;
 
-    @Bind(R.id.button1)
+    @BindView(R.id.button1)
     Button mShowTextBtn;
-    @Bind(R.id.button2)
+    @BindView(R.id.button2)
     Button mShowCircleBtn;
-    @Bind(R.id.button3)
+    @BindView(R.id.button3)
     Button mHideBtn;
 
     JPTabBar mTabBar;
-    @Bind(R.id.radioGroup)
+    @BindView(R.id.radioGroup)
     RadioGroup mGroup;
-    @Bind(R.id.radioGroup1)
+    @BindView(R.id.radioGroup1)
     RadioGroup mRadioGroup1;
-    @Bind(R.id.radioGroup2)
+    @BindView(R.id.radioGroup2)
     RadioGroup mRadioGroup2;
 
     public static TabBarSettingFragment newInstance() {

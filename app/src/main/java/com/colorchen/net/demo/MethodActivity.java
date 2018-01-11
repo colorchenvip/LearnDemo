@@ -20,7 +20,7 @@ import com.colorchen.net.model.ServerModel;
 import com.colorchen.net.utils.ColorUtils;
 import com.lzy.okgo.OkGo;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.MediaType;
@@ -33,7 +33,7 @@ import okhttp3.Response;
  * email：wxchenq@yutong.com
  */
 public class MethodActivity extends NetBaseDetailActivity implements AdapterView.OnItemClickListener{
-    @Bind(R.id.gridView)
+    @BindView(R.id.gridView)
     GridView gridView;
 
     private String[] methods = {"GET", "HEAD\n只有请求头", "OPTIONS\n获取服务器支持的HTTP请求方式",//

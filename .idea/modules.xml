@@ -5,9 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/LearnDemo.iml" filepath="$PROJECT_DIR$/LearnDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customseekbar/customseekbar.iml" filepath="$PROJECT_DIR$/customseekbar/customseekbar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/earthlibs/earthlibs.iml" filepath="$PROJECT_DIR$/earthlibs/earthlibs.iml" />
       <module fileurl="file://$PROJECT_DIR$/okgo/okgo.iml" filepath="$PROJECT_DIR$/okgo/okgo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/publiclibrary/publiclibrary.iml" filepath="$PROJECT_DIR$/publiclibrary/publiclibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qbase/qbase.iml" filepath="$PROJECT_DIR$/qbase/qbase.iml" />
       <module fileurl="file://$PROJECT_DIR$/splashlibrary/splashlibrary.iml" filepath="$PROJECT_DIR$/splashlibrary/splashlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/tabBarLibrary/tabBarLibrary.iml" filepath="$PROJECT_DIR$/tabBarLibrary/tabBarLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/xFefreshViewLibrary/xFefreshViewLibrary.iml" filepath="$PROJECT_DIR$/xFefreshViewLibrary/xFefreshViewLibrary.iml" />

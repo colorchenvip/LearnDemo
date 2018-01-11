@@ -14,13 +14,13 @@ import com.colorchen.ui.BaseActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by color on 16/4/25 19:43.
  */
 public class TestJSDemo extends BaseActivity{
-    @Bind(R.id.web_view_js)
+    @BindView(R.id.web_view_js)
     WebView webView;
     private JSWebViewClient webViewClient;
 

@@ -19,18 +19,20 @@ import com.colorchen.net.demo.MethodActivity;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * OkHttp 使用的介绍
- * Author ChenQ on 2017/5/19
+ * des：OkHttp 使用的介绍
+ *
+ * @author ChenQ
+ * @date 2017-12-4
  * email：wxchenq@yutong.com
  */
 public class OkHttpActivity extends OkBaseActivity {
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     private ArrayList<String[]> data;
 
@@ -80,9 +82,9 @@ public class OkHttpActivity extends OkBaseActivity {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        @Bind(R.id.title)
+        @BindView(R.id.title)
         TextView title;
-        @Bind(R.id.des)
+        @BindView(R.id.des)
         TextView des;
 
         private int position;
@@ -108,13 +110,27 @@ public class OkHttpActivity extends OkBaseActivity {
             if (position == 4) startActivity(new Intent(OkHttpActivity.this, SyncActivity.class));
             if (position == 5) startActivity(new Intent(OkHttpActivity.this, RedirectActivity.class));
             if (position == 6) startActivity(new Intent(OkHttpActivity.this, TestActivity.class));*/
-            if (position == 0) startActivity(new Intent(OkHttpActivity.this, MethodActivity.class));
-            if (position == 1) showToast("002");
-            if (position == 2) showToast("003");
-            if (position == 3) showToast("004");
-            if (position == 4) showToast("005");
-            if (position == 5) showToast("006");
-            if (position == 6) showToast("007");
+            if (position == 0) {
+                startActivity(new Intent(OkHttpActivity.this, MethodActivity.class));
+            }
+            if (position == 1) {
+                showToast("002");
+            }
+            if (position == 2) {
+                showToast("003");
+            }
+            if (position == 3) {
+                showToast("004");
+            }
+            if (position == 4) {
+                showToast("005");
+            }
+            if (position == 5) {
+                showToast("006");
+            }
+            if (position == 6) {
+                showToast("007");
+            }
         }
     }
 }

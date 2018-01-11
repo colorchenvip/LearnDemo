@@ -12,7 +12,7 @@ import com.colorchen.ui.widget.BannerViewPager;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
  */
 public class DataBindingActivity extends AppCompatActivity {
 
-    @Bind(R.id.indexViewPager)
+    @BindView(R.id.indexViewPager)
     BannerViewPager mIndexViewPager;
     private ScrollAdapter adapter;
 

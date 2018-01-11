@@ -14,7 +14,6 @@ import android.widget.GridView;
 import com.andview.refreshview.XRefreshView;
 import com.colorchen.R;
 import com.colorchen.mvp.function.databinding.DataBindingActivity;
-import com.colorchen.mvp.function.earth.BaiDuEarthActivity;
 import com.colorchen.mvp.player.VideoPlayerStandardActivity;
 import com.colorchen.mvp.view.recycleview.CustomerFooter;
 import com.colorchen.mvp.view.recycleview.IndexPageAdapter;
@@ -27,7 +26,7 @@ import com.colorchen.ui.widget.BannerViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -39,9 +38,9 @@ import butterknife.ButterKnife;
  */
 public class MainFragment extends BaseFragment {
 
-    @Bind(R.id.mainGv)
+    @BindView(R.id.mainGv)
     GridView mMainGv;
-    @Bind(R.id.mainFragmentXrv)
+    @BindView(R.id.mainFragmentXrv)
     XRefreshView mMainFragmentXrv;
 
     private BaseActivity context;
@@ -50,9 +49,15 @@ public class MainFragment extends BaseFragment {
     private ArrayAdapter<String> adapter;
     private BannerViewPager mLoopViewPager;
     private AdHeader headerView;
-    private int[] mImageIds = new int[]{R.mipmap.test01, R.mipmap.test02, R.mipmap.test03};// 测试图片id
+    /**
+     * 测试图片id
+     */
+    private int[] mImageIds = new int[]{R.mipmap.test01, R.mipmap.test02, R.mipmap.test03};
 
-    private int index = 1;//数据的起点位置
+    /**
+     * 数据的起点位置
+     */
+    private int index = 1;
 
     public static MainFragment newInstance() {
         Bundle args = new Bundle();
@@ -117,7 +122,6 @@ public class MainFragment extends BaseFragment {
                         break;
                     case 4:
                         // earth use 地图使用
-                        startActivity(new Intent(context, BaiDuEarthActivity.class));
                         break;
                      default:
                         break;
@@ -192,6 +196,6 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+        ButterKnife.bind(this,getActivity()).unbind();
     }
 }

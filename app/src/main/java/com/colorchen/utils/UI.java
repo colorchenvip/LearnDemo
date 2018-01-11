@@ -4,14 +4,14 @@ import android.content.Context;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
-import com.colorchen.LearnDemoApp;
+import com.colorchen.App;
 
 /**
  * Util to show hint such as snackBar or dialog.
  */
 public class UI {
 
-    private static Context context = LearnDemoApp.context;
+    private static Context context = App.context;
 
     public static void showSnack(View rootView, int textId) {
         if (null != rootView) {

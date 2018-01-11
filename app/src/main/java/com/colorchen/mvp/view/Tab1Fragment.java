@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.colorchen.R;
 import com.colorchen.ui.BaseFragment;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -20,11 +20,11 @@ import butterknife.ButterKnife;
  */
 public class Tab1Fragment extends BaseFragment implements View.OnClickListener {
 
-    @Bind(R.id.tab1Button1)
+    @BindView(R.id.tab1Button1)
     Button mTab1Button1;
-    @Bind(R.id.tab1Button2)
+    @BindView(R.id.tab1Button2)
     Button mTab1Button2;
-    @Bind(R.id.tab1Button3)
+    @BindView(R.id.tab1Button3)
     Button mTab1Button3;
 
     public static Tab1Fragment newInstance() {
@@ -70,6 +70,6 @@ public class Tab1Fragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+        ButterKnife.bind(this,getActivity()).unbind();
     }
 }

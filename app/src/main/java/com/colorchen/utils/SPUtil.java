@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.colorchen.LearnDemoApp;
+import com.colorchen.App;
 
 /**
  * Created by color on 16/4/25 18:16.
  */
 public class SPUtil {
-    private static Context context = LearnDemoApp.context;
+    private static Context context = App.context;
     private static SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
     private static SharedPreferences.Editor editor = sp.edit();
 

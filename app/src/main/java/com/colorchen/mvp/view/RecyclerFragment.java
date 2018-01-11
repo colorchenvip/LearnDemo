@@ -10,15 +10,15 @@ import com.colorchen.ui.BaseFragment;
 import com.colorchen.utils.Constants;
 import com.colorchen.utils.SPUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by color on 16/4/25 16:07.
  */
 public abstract class RecyclerFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
-    @Bind(R.id.list)
+    @BindView(R.id.list)
     RecyclerView recyclerView;
-    @Bind(R.id.swipe_refresh)
+    @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
 
     int type;

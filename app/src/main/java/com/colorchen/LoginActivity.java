@@ -7,6 +7,7 @@ import android.annotation.TargetApi;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -78,8 +79,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 // 16/4/13 跳转主界面
                 SPUtil.save(Constants.IS_LOGIN,true);
                 Toast.makeText(context,"登陆成功",Toast.LENGTH_LONG).show();
-//                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//                finish();
             }else if (msg.what == 1){
                 Toast.makeText(context,"登陆失败",Toast.LENGTH_LONG).show();
                 showProgress(false);
@@ -106,24 +107,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
             }
         });
         mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
+        mPasswordView.setOnEditorActionListener((textView, id, keyEvent) -> {
+            if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                attemptLogin();
+                return true;
             }
+            return false;
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
+        mEmailSignInButton.setOnClickListener(view -> attemptLogin());
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);

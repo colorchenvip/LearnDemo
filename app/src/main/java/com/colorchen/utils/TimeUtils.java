@@ -3,7 +3,7 @@ package com.colorchen.utils;
 import android.content.Context;
 import android.content.res.Resources;
 
-import com.colorchen.Application;
+import com.colorchen.App;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -91,6 +91,7 @@ public class TimeUtils {
 
     /**
      * 判断当前时间是否是当天（从0点到24点）
+     *
      * @return
      */
     public static boolean isInSameDay(long time) {
@@ -239,7 +240,7 @@ public class TimeUtils {
      */
     public static int getCurrentTimeInHour() {
         Calendar c = Calendar.getInstance();
-        long ms = c.getTimeInMillis()/60/60;
+        long ms = c.getTimeInMillis() / 60 / 60;
         return (int) (ms / 1000);
     }
 
@@ -265,22 +266,23 @@ public class TimeUtils {
      * @return
      */
     public static String getChatTimeDesc(long msgTime, boolean year) {
-        Context context = Application.getSelf().getApplicationContext();
+        Context context = App.context.getApplicationContext();
         Date msgDate = new Date(msgTime * 1000l);
         Date now = new Date();
         final SimpleDateFormat format = getSimpleDateFormat();
         long curTime = now.getTime();
         msgTime = msgTime * 1000;
         long diffTime = (curTime - msgTime) / 1000;
-        String strTime = "";
-        if (diffTime < 60 * 60 * 24) { // 1小时<=发布时间<6小时 ---> xx小时前
+        String strTime;
+        // 1小时<=发布时间<6小时 ---> xx小时前
+        if (diffTime < 60 * 60 * 24) {
             format.applyPattern("HH:mm");
             strTime = format.format(msgDate);
-            if (now.getDate() != msgDate.getDate()){
+            if (now.getDate() != msgDate.getDate()) {
                 strTime = "昨天" + " " + strTime;
             }
-
-        } else if (diffTime < 60 * 60 * 72) { // 6小时<=发布时间<72小时 --> （昨天/前天）HH：MM
+            // 6小时<=发布时间<72小时 --> （昨天/前天）HH：MM
+        } else if (diffTime < 60 * 60 * 72) {
             format.applyPattern("HH:mm");
             strTime = format.format(msgDate);
             if (now.getDate() == msgDate.getDate()) {
@@ -297,7 +299,7 @@ public class TimeUtils {
                 } else {
                     msgCalendar.add(Calendar.DATE, 1);
                     if (msgCalendar.get(Calendar.DATE) == nowCalendar.get(Calendar.DATE)) {
-                        strTime ="前天" + " " + strTime;
+                        strTime = "前天" + " " + strTime;
                     } else {
                         format.applyPattern("M月d日");
                         strTime = format.format(msgDate);
@@ -335,11 +337,12 @@ public class TimeUtils {
     /**
      * 时间显示
      * 显示的格式yyyy年M月d日 HH:mm
+     *
      * @param msgTime
      * @return
      * @th
      */
-    public static String getDateTimeDesc(long msgTime,boolean year) {
+    public static String getDateTimeDesc(long msgTime, boolean year) {
         Date msgDate = new Date(msgTime * 1000l);
         final SimpleDateFormat format = getSimpleDateFormat();
         if (year) {
@@ -354,6 +357,7 @@ public class TimeUtils {
 
     /**
      * 视频播放器 使用的时间
+     *
      * @param timeMs
      * @return
      */

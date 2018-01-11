@@ -17,7 +17,7 @@ import com.colorchen.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * 顶部的tab管理manager
@@ -31,9 +31,9 @@ public class TabsFragment extends BaseFragment {
     private static final int SMOOTHSCROLL_TOP_POSITION = 50;
 
     private TabPagerAdapter adapter;
-    @Bind(R.id.pager)
+    @BindView(R.id.pager)
     ViewPager pager;
-    @Bind(R.id.tabs)
+    @BindView(R.id.tabs)
     TabLayout tabs;
 
     /*菜单的分类*/

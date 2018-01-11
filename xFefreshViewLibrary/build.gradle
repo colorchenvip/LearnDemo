@@ -1,12 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
-    resourcePrefix "XRefreshView"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0.1"
     }
@@ -21,18 +20,7 @@ android {
     }
 }
 dependencies {
-    provided 'com.android.support:recyclerview-v7:25.3.1'
-    provided 'com.android.support:support-v4:25.3.1'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
 
 }
-
-//for upload jar
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
-    }
-}
-apply from: 'gradle-jcenter-push.gradle'
