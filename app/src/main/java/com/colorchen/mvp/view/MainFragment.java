@@ -100,33 +100,30 @@ public class MainFragment extends BaseFragment {
         mMainFragmentXrv.setPullLoadEnable(true);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, strList);
         mMainGv.setAdapter(adapter);
-        mMainGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
+        mMainGv.setOnItemClickListener((parent, view, position, id) -> {
+            switch (position) {
+                case 0:
 
-                        break;
-                    case 1:
-                        //视频播放
-                        startActivity(new Intent(context, VideoPlayerStandardActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                        break;
-                    case 2:
-                        //网络组建
-                        startActivity(new Intent(context, OkHttpMainActivity.class));
-                        break;
-                    case 3:
-                        //dataBinding use
-                        startActivity(new Intent(context, DataBindingActivity.class));
-                        break;
-                    case 4:
-                        // earth use 地图使用
-                        break;
-                     default:
-                        break;
+                    break;
+                case 1:
+                    //视频播放
+                    startActivity(new Intent(context, VideoPlayerStandardActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                    break;
+                case 2:
+                    //网络组建
+                    startActivity(new Intent(context, OkHttpMainActivity.class));
+                    break;
+                case 3:
+                    //dataBinding use
+                    startActivity(new Intent(context, DataBindingActivity.class));
+                    break;
+                case 4:
+                    // earth use 地图使用
+                    break;
+                 default:
+                    break;
 
-                }
             }
         });
     }
@@ -178,6 +175,7 @@ public class MainFragment extends BaseFragment {
                 }, 2000);
             }
         });
+        mMainFragmentXrv.stopRefresh();
     }
 
     private void initBanner() {

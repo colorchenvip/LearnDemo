@@ -43,11 +43,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.colorchen.App.context;
 
 /**
  * des：MainActivity
+ *
  * @author ChenQ
  * @date 2017-12-4
  * email：wxchenq@yutong.com
@@ -56,7 +58,7 @@ public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, BadgeDismissListener, OnTabSelectListener {
 
     @BindView(R.id.nav_view)
-    NavigationView navView;
+    NavigationView navigationView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
     @Titles
@@ -86,20 +88,19 @@ public class MainActivity extends BaseActivity
     protected void initViews() {
        /* super.initViews();*/
         initSplash();
-//        initLogin();
-        setupDrawer();
+        initLogin();
         setNavigationView();
         initTabBar();
     }
 
     private void initLogin() {
-        if (!SPUtil.getBoolean(Constants.IS_LOGIN)){
-            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+        if (!SPUtil.getBoolean(Constants.IS_LOGIN)) {
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
     }
 
     private void initSplash() {
-        ColorSplashView.showSplashView(this,3,R.drawable.color__splash,new ColorSplashView.OnSplashViewActionListener(){
+        ColorSplashView.showSplashView(this, 3, R.drawable.color__splash, new ColorSplashView.OnSplashViewActionListener() {
 
             @Override
             public void onSplashImageClick(String actionUrl) {
@@ -119,8 +120,9 @@ public class MainActivity extends BaseActivity
         fragments.add(TabBarSettingFragment.newInstance());
         fragments.add(Tab1Fragment.newInstance());
         fragments.add(MeFragment.newInstance());
-        adapter = new TabPagerAdapter(getSupportFragmentManager(),fragments,mTitles);
+        adapter = new TabPagerAdapter(getSupportFragmentManager(), fragments, mTitles);
         pager.setAdapter(adapter);
+
         mTabBar.setTabListener(this);
         mTabBar.setContainer(pager);
         mTabBar.setDismissListener(this);
@@ -131,6 +133,7 @@ public class MainActivity extends BaseActivity
         mTabBar.setTabListener(this);
 
     }
+
     @Override
     public void onDismiss(int position) {
         if (position == 1) {
@@ -142,40 +145,38 @@ public class MainActivity extends BaseActivity
     public void onTabSelect(int index) {
 
     }
+
     public JPTabBar getTaBar() {
         return mTabBar;
     }
 
     private void setNavigationView() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        if (drawerLayout != null) {
+            drawerLayout.setDrawerListener(toggle);
+            toggle.syncState();
+        }
+
         //DrawerLayout兼容4.4
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             //将侧边栏顶部延伸至status bar
-            drawer.setFitsSystemWindows(true);
+            drawerLayout.setFitsSystemWindows(true);
             //将主页面顶部延伸至status bar;虽默认为false,但经测试,DrawerLayout需显示设置
-            drawer.setClipToPadding(false);
+            drawerLayout.setClipToPadding(false);
         }
         //设置状态栏透明
         StateBarTranslucentUtils.setStateBarTranslucent(this);
         //获得状态栏高度
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        int stateBarHeight =  getResources().getDimensionPixelSize(resourceId);
+        int stateBarHeight = getResources().getDimensionPixelSize(resourceId);
         //设置margin
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
         layoutParams.setMargins(0, stateBarHeight, 0, 0);
         toolbar.setLayoutParams(layoutParams);
     }
 
-    private void setupDrawer() {
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        if (drawerLayout != null) {
-            drawerLayout.setDrawerListener(toggle);
-        }
-        toggle.syncState();
-    }
 
     @Override
     public void onBackPressed() {
@@ -263,7 +264,7 @@ public class MainActivity extends BaseActivity
             //系统设置
             startActivity(new Intent(this, SettingActivity.class));
         } else if (id == R.id.nav_share) {
-            startActivity(new Intent(getApplicationContext(),WelcomeColorchen.class));
+            startActivity(new Intent(getApplicationContext(), WelcomeColorchen.class));
         } else if (id == R.id.nav_net) {
             //网络组建
             startActivity(new Intent(getApplicationContext(), OkHttpMainActivity.class));

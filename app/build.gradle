@@ -76,21 +76,20 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //okhttp
-    compile 'com.zhy:okhttputils:2.2.0'
-    compile 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.zhy:okhttputils:2.2.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
     //net
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.jakewharton:butterknife:8.8.1'
-    compile 'com.github.bumptech.glide:glide:4.2.0'
-    compile 'org.jsoup:jsoup:1.8.3'
-    compile 'me.imid.swipebacklayout.lib:library:1.0.0'
-    compile project(':okgo')
+    implementation 'com.github.bumptech.glide:glide:4.2.0'
+    implementation 'org.jsoup:jsoup:1.8.3'
+    implementation 'me.imid.swipebacklayout.lib:library:1.0.0'
+    implementation project(':okgo')
     //多功能下拉刷新组件
-    compile project(':xFefreshViewLibrary')
+    implementation project(':xFefreshViewLibrary')
     //底部栏组件
-    compile project(':tabBarLibrary')
-    compile project(':splashlibrary')
-    compile project(':customseekbar')
+    implementation project(':tabBarLibrary')
+    implementation project(':splashlibrary')
+    implementation project(':customseekbar')
     implementation project(':qbase')
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }
